@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Vite App</title>
+  </head>
+  <body class="overflow-hidden">
+    <div class="w-72 h-72 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full absolute blur-[200px] opacity-150 " style="background: linear-gradient(to right, #012de2 0%, #05fdff 100%);">
+      
+    </div>
+
+    <!-- Added full page tint with reduced opacity and highest z-index -->
+    <div class="w-full h-full fixed top-0 left-0 pointer-events-none opacity-20 z-50 mix-blend-overlay" style="background: linear-gradient(to right, #0033e6 0%, #0033e6 100%);">
+    </div>
+
+    <div class="w-full h-screen overflow-hidden">
+      <div class="px-10 py-3 flex justify-between z-10">
+        <img class="w-[120px]" src="./3d-rendered-the-cyberpunk-logo-using-blender-v0-khopj82wqee91.webp" alt="">
+        <div class="flex gap-10 ">
+          <a href="#" class="cursor-pointer text-white font-thin">Home</a>
+          <a href="#" class="cursor-pointer text-white font-thin">Contact</a>
+          <a href="#" class="cursor-pointer text-white font-thin">About</a>
+          <a href="#" class="cursor-pointer text-white font-thin">CyberCity</a>
+        </div>
+      </div>
+      <img class="w-62 cyimg absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 mix-blend-screen contrast-150 saturate-150" src="./3d-rendered-the-cyberpunk-logo-using-blender-v0-khopj82wqee91.webp" alt="">
+      <canvas id="canvas" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">
+      
+      </canvas>
+    
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
