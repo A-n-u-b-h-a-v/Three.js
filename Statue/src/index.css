@@ -1,0 +1,14 @@
+@import "tailwindcss";
+@font-face {
+  font-family: 'modernist-regular';
+  src: url('/sk-modernist/Sk-Modernist-Regular.otf');
+}
+@font-face {
+  font-family: 'modernist-bold';
+  src: url('/sk-modernist/Sk-Modernist-Bold.otf');
+}
+@font-face {
+  font-family: 'modernist-mono';
+  src: url('/sk-modernist/Sk-Modernist-RegMonoular.otf');
+}
+   
