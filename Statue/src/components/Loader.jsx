@@ -1,5 +1,5 @@
 import { useProgress } from "@react-three/drei";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 function Loader({ onFinish }) {
@@ -11,7 +11,6 @@ function Loader({ onFinish }) {
   const nameAnimation = fadeName
     ? { color: "#000000", opacity: 0.2 }
     : { color: "#ffffff", opacity: 1 };
-  const nameTransition = { duration: 0.6, ease: "easeInOut" };
 
   useEffect(() => {
     if (!isLoaded) {
@@ -32,35 +31,35 @@ function Loader({ onFinish }) {
   }, [isLoaded, onFinish]);
 
   return (
-    <motion.div className="fixed inset-0 z-50">
-      <motion.div
+    <Motion.div className="fixed inset-0 z-50">
+      <Motion.div
         animate={{ y: startSplit ? "-100%" : 0 }}
         transition={{ duration: 0.8, ease: "easeInOut" }}
         className="absolute top-0 left-0 h-1/2 w-full bg-black"
       />
-      <motion.div
+      <Motion.div
         animate={{ y: startSplit ? "100%" : 0 }}
         transition={{ duration: 0.8, ease: "easeInOut" }}
         className="absolute bottom-0 left-0 h-1/2 w-full bg-black"
       />
       <div className="absolute inset-0 flex items-center justify-center">
-        <motion.div
+        <Motion.div
           animate={nameAnimation}
-          
-          className="uppercase text-[18rem] leading-none overflow-hidden w-full text-center font-[modernist-bold] animate-pulse"
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+          className="uppercase text-[18rem] leading-none overflow-hidden w-full text-center font-[modernist-bold]"
         >
           <h1>anubhav</h1>
           <h1>gusain</h1>
-        </motion.div>
+        </Motion.div>
       </div>
-      <motion.div
+      <Motion.div
         animate={{ color: fadeName ? "#000000" : "#ffffff" }}
         transition={{ duration: 0.6, ease: "easeInOut" }}
         className="absolute bottom-6 right-8 text-xs font-[modernist-regular]"
       >
         {progress.toFixed(0)}%
-      </motion.div>
-    </motion.div>
+      </Motion.div>
+    </Motion.div>
   );
 }
 export default Loader

@@ -16,10 +16,14 @@ export default function Model({ progress }) {
   const lightRef = useRef();
 
   useFrame(() => {
-    cameraRef.current.lookAt(0, 0, 0);
+    if (cameraRef.current) {
+      cameraRef.current.lookAt(0, 0, 0);
+    }
   });
-  if (!cameraRef || !lightRef) return;
   useEffect(() => {
+    if (!cameraRef.current || !lightRef.current) {
+      return;
+    }
     const camPositions = [
       [-2.36, -11.52, -44.45],
       [45.82, 1.65, 3.42],
@@ -111,7 +115,7 @@ export default function Model({ progress }) {
       );
     }
     // Animate with GSAP (kill old tweens so it’s smooth)
-  }, [progress, cameraRef.current, lightRef.current]);
+  }, [progress]);
 
   return (
     <>
