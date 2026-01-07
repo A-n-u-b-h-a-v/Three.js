@@ -54,33 +54,33 @@ export default function App() {
   }, []);
 
   return (
-    <div ref={mainRef} className="relative">
+    <div ref={mainRef} className="relative min-h-screen">
       <ReactLenis root />
       {/* Loader Overlay with AnimatePresence */}
       <AnimatePresence>
-        {loading && <Loader onFinish={() => setLoading(false)} />}
+        {loading && <Loader loading={loading} onFinish={() => setLoading(false)} />}
       </AnimatePresence>
       {/* Background Video */}
       <BackgroundVideo />
-      <div id="portfolio" className="h-screen w-full relative">
+      <div id="portfolio" className="min-h-[100svh] w-full relative">
         <Navbar />
         
 
-        <div className="uppercase text-[4rem] sm:text-[6rem] md:text-[10rem] lg:text-[14rem] xl:text-[18rem] leading-none overflow-hidden w-screen text-center font-[modernist-bold] absolute inset-0 flex flex-col items-center justify-center">
+        <div className="hidden sm:flex uppercase text-[20vw] leading-none overflow-hidden w-screen text-center font-[modernist-bold] absolute inset-0 flex-col items-center justify-center px-4">
           <h1>anubhav</h1>
           <h1>gusain</h1>
         </div>
         
         
         {showKeepScrolling && (
-          <span className="font-[modernist-bold] uppercase text-xs sm:text-sm px-4 py-2 animate-bounce fixed right-4 bottom-4 sm:right-6 sm:bottom-6 inline-flex items-center gap-2">
+          <span className="font-[modernist-bold] uppercase text-[10px] sm:text-sm px-3 sm:px-4 py-2 animate-bounce fixed right-3 bottom-3 sm:right-6 sm:bottom-6 inline-flex items-center gap-2">
             Keep Scrolling
             <ArrowDown className="size-4" aria-hidden="true" />
           </span>
         )}
 
         {/* 3D Scene */}
-        <div ref={sceneRef} className="h-screen fixed top-0 w-full">
+        <div ref={sceneRef} className="h-[100svh] sm:h-screen fixed top-0 w-full">
           <Canvas shadows>
             <Suspense fallback={null}>
               <Model progress={scrollProgress} />
@@ -91,7 +91,7 @@ export default function App() {
       {/* Page 2: About + Tech Stack */}
       <div
         id="about"
-        className="h-screen relative w-full text-white font-[modernist-regular] text-sm"
+        className="min-h-[100svh] relative w-full text-white font-[modernist-regular] text-xs sm:text-sm"
       >
         <Sidenote
           title="About Me"
@@ -133,7 +133,7 @@ export default function App() {
       {/* Page 3: Experience */}
       <div
         id="experience"
-        className="h-screen relative w-full text-white font-[modernist-regular] text-sm"
+        className="min-h-[100svh] relative w-full text-white font-[modernist-regular] text-xs sm:text-sm"
       >
         <Sidenote
           title="Work2Fish (Nov 2025 - Jan 2026)"
@@ -155,7 +155,7 @@ export default function App() {
       {/* Page 4: Education */}
       <div
         id="education"
-        className="h-screen relative w-full text-white font-[modernist-regular] text-sm"
+        className="min-h-[100svh] relative w-full text-white font-[modernist-regular] text-xs sm:text-sm"
       >
         <Sidenote
           title="Education"
@@ -171,12 +171,100 @@ export default function App() {
           </div>
         </Sidenote>
       </div>
+      {/* Page 5: Projects */}
+      <div
+        id="projects"
+        className="min-h-screen w-full relative font-[modernist-regular] text-xs sm:text-sm text-white z-50"
+      >
+        <div className="absolute inset-0 px-5 sm:px-10 py-20 sm:py-24">
+          <div className="uppercase text-xs font-semibold text-stone-400 mb-6">
+            Projects
+          </div>
+          <div className="grid gap-6 sm:gap-8 md:grid-cols-2 xl:grid-cols-3">
+            <div className="bg-black/70 p-4 border border-white/10">
+              <div className="flex items-center justify-between pb-3 border-b border-white/20">
+                <div>Mooz Project</div>
+                <a
+                  href="https://mooz-project.vercel.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-stone-400"
+                >
+                  Visit
+                </a>
+              </div>
+              <div className="pt-3">
+                A responsive web project showcasing a clean UI and modern
+                layout, built for fast loading and smooth interactions.
+              </div>
+              <div className="mt-4 aspect-video w-full overflow-hidden">
+                <iframe
+                  title="Mooz Project"
+                  src="https://mooz-project.vercel.app/"
+                  className="h-full w-full"
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+            <div className="bg-black/70 p-4 border border-white/10">
+              <div className="flex items-center justify-between pb-3 border-b border-white/20">
+                <div>Quillio Notes</div>
+                <a
+                  href="https://quillio-notes.vercel.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-stone-400"
+                >
+                  Visit
+                </a>
+              </div>
+              <div className="pt-3">
+                A multi-tenant notes app focused on productivity with secure
+                access and organized note management.
+              </div>
+              <div className="mt-4 aspect-video w-full overflow-hidden">
+                <iframe
+                  title="Quillio Notes"
+                  src="https://quillio-notes.vercel.app/"
+                  className="h-full w-full"
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+            <div className="bg-black/70 p-4 border border-white/10">
+              <div className="flex items-center justify-between pb-3 border-b border-white/20">
+                <div>Mojito</div>
+                <a
+                  href="https://mojito-murex.vercel.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-stone-400"
+                >
+                  Visit
+                </a>
+              </div>
+              <div className="pt-3">
+                A bold, animated landing page concept with playful
+                typography and smooth scroll-driven interactions.
+              </div>
+              <div className="mt-4 aspect-video w-full overflow-hidden">
+                <iframe
+                  title="Mojito"
+                  src="https://mojito-murex.vercel.app/"
+                  className="h-full w-full"
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* Footer */}
       <div
         id="connect"
-        className="h-[50vh] w-full relative font-[modernist-regular] text-sm"
+        className="min-h-[40vh] sm:min-h-[50vh] w-full relative font-[modernist-regular] text-xs sm:text-sm"
       >
-        <div className="absolute inset-x-0 bottom-10 flex flex-col items-center gap-6 px-6 sm:flex-row sm:justify-between sm:px-10 z-50">
+        <div className="absolute inset-x-0 bottom-8 sm:bottom-10 flex flex-col items-center gap-6 px-6 sm:flex-row sm:justify-between sm:px-10 z-50">
           <a
             href="mailto:anubhavsingh.ag@gmail.com"
             className="uppercase text-xs font-semibold text-stone-600"

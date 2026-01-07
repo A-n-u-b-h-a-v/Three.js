@@ -1,3 +1,5 @@
-canvas{
-    height: 100vh;
+canvas {
+    height: 100svh;
+    width: 100vw;
+    display: block;
 }

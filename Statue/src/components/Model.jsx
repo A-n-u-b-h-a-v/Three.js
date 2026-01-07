@@ -15,6 +15,7 @@ export default function Model({ progress }) {
   const cameraRef = useRef();
   const lightRef = useRef();
 
+
   useFrame(() => {
     if (cameraRef.current) {
       cameraRef.current.lookAt(0, 0, 0);

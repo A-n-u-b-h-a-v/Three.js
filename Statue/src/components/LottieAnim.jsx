@@ -5,6 +5,7 @@ import animationData from "../../public/soundWave_animation.json";
 const LottieAnim = () => {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
+  const storageKey = "statue-sound";
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -12,6 +13,20 @@ const LottieAnim = () => {
       return;
     }
     audio.volume = 0.3;
+    const storedPreference = window.localStorage.getItem(storageKey);
+    const shouldPlay =
+      storedPreference === null ? true : storedPreference === "on";
+
+    if (storedPreference === null) {
+      window.localStorage.setItem(storageKey, "on");
+    }
+
+    if (!shouldPlay) {
+      audio.pause();
+      setIsPlaying(false);
+      return;
+    }
+
     const playPromise = audio.play();
     if (playPromise && typeof playPromise.then === "function") {
       playPromise
@@ -43,9 +58,11 @@ const LottieAnim = () => {
       } else {
         setIsPlaying(true);
       }
+      window.localStorage.setItem(storageKey, "on");
     } else {
       audio.pause();
       setIsPlaying(false);
+      window.localStorage.setItem(storageKey, "off");
     }
   }
 
@@ -66,12 +83,12 @@ const LottieAnim = () => {
         onPause={() => setIsPlaying(false)}
       ></audio>
       <button
-        className="flex items-center gap-2 relative w-18"
-        onClick={toggleAudio}
+        className="flex items-center gap-2 relative min-w-20"
+        onClick={toggleAudio} 
       >
         Sound :
         <span className="text-gray-500 font-extralight absolute right-0 min-w-6 flex items-center">
-          {" " + (isPlaying ? "ON" : "OFF")}
+          {" " +(isPlaying ? " ON" : " OFF")}
         </span>
       </button>
     </div>
