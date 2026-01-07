@@ -197,14 +197,19 @@ export default function App() {
                 A responsive web project showcasing a clean UI and modern
                 layout, built for fast loading and smooth interactions.
               </div>
-              <div className="mt-4 aspect-video w-full overflow-hidden">
-                <iframe
-                  title="Mooz Project"
-                  src="https://mooz-project.vercel.app/"
-                  className="h-full w-full"
+              <a
+                href="https://mooz-project.vercel.app/"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 block aspect-video w-full overflow-hidden"
+              >
+                <img
+                  src="/projects/mooz.png"
+                  alt="Mooz Project preview"
+                  className="h-full w-full object-cover"
                   loading="lazy"
-                ></iframe>
-              </div>
+                />
+              </a>
             </div>
             <div className="bg-black/70 p-4 border border-white/10">
               <div className="flex items-center justify-between pb-3 border-b border-white/20">
@@ -222,14 +227,19 @@ export default function App() {
                 A multi-tenant notes app focused on productivity with secure
                 access and organized note management.
               </div>
-              <div className="mt-4 aspect-video w-full overflow-hidden">
-                <iframe
-                  title="Quillio Notes"
-                  src="https://quillio-notes.vercel.app/"
-                  className="h-full w-full"
+              <a
+                href="https://quillio-notes.vercel.app/"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 block aspect-video w-full overflow-hidden"
+              >
+                <img
+                  src="/projects/quillio.png"
+                  alt="Quillio Notes preview"
+                  className="h-full w-full object-cover"
                   loading="lazy"
-                ></iframe>
-              </div>
+                />
+              </a>
             </div>
             <div className="bg-black/70 p-4 border border-white/10">
               <div className="flex items-center justify-between pb-3 border-b border-white/20">
@@ -247,14 +257,19 @@ export default function App() {
                 A bold, animated landing page concept with playful
                 typography and smooth scroll-driven interactions.
               </div>
-              <div className="mt-4 aspect-video w-full overflow-hidden">
-                <iframe
-                  title="Mojito"
-                  src="https://mojito-murex.vercel.app/"
-                  className="h-full w-full"
+              <a
+                href="https://mojito-murex.vercel.app/"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 block aspect-video w-full overflow-hidden"
+              >
+                <img
+                  src="/projects/mojito.png"
+                  alt="Mojito preview"
+                  className="h-full w-full object-cover"
                   loading="lazy"
-                ></iframe>
-              </div>
+                />
+              </a>
             </div>
           </div>
         </div>
