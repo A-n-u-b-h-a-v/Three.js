@@ -271,6 +271,60 @@ export default function App() {
                 />
               </a>
             </div>
+            <div className="bg-black/70 p-4 border border-white/10">
+              <div className="flex items-center justify-between pb-3 border-b border-white/20">
+                <div>Babycode</div>
+                <a
+                  href="https://babycode-tawny.vercel.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-stone-400"
+                >
+                  Visit
+                </a>
+              </div>
+              <div className="pt-3">A clean, modern landing page showcase.</div>
+              <a
+                href="https://babycode-tawny.vercel.app/"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 block aspect-video w-full overflow-hidden"
+              >
+                <img
+                  src="/projects/Babycode.png"
+                  alt="Babycode preview"
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+            <div className="bg-black/70 p-4 border border-white/10">
+              <div className="flex items-center justify-between pb-3 border-b border-white/20">
+                <div>Apple Dummy</div>
+                <a
+                  href="https://apple-dummy.vercel.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-stone-400"
+                >
+                  Visit
+                </a>
+              </div>
+              <div className="pt-3">A product-focused landing page mockup.</div>
+              <a
+                href="https://apple-dummy.vercel.app/"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 block aspect-video w-full overflow-hidden"
+              >
+                <img
+                  src="/projects/iphone.png"
+                  alt="Apple Dummy preview"
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
