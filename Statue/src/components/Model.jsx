@@ -33,13 +33,11 @@ export default function Model({ progress }) {
       [-6.35, -6.67, -51],
     ];
 
-    const radius = 150; // distance from center
-    const height = 100; // fixed Y
-    const numLights = 5; // number of lights
-
-    // Generate positions along a full circle (360°)
+    const radius = 150;
+    const height = 100;
+    const numLights = 5;
     const lightPositions = Array.from({ length: numLights }, (_, i) => {
-      const angle = (2 * Math.PI * i) / numLights; // 0 → 2π
+      const angle = (2 * Math.PI * i) / numLights;
       const x = Math.cos(angle) * radius;
       const y = height;
       const z = Math.sin(angle) * radius;
@@ -54,7 +52,6 @@ export default function Model({ progress }) {
 
     const percentage = (progress % segmentProgress) / segmentProgress;
 
-    // Camera interpolation
     const [cx1, cy1, cz1] = camPositions[segmentIndex];
     const [cx2, cy2, cz2] = camPositions[segmentIndex + 1];
 
@@ -62,7 +59,6 @@ export default function Model({ progress }) {
     const viewy = cy1 + (cy2 - cy1) * percentage;
     const viewz = cz1 + (cz2 - cz1) * percentage;
 
-    // Light interpolation
     const [lx1, ly1, lz1] = lightPositions[segmentIndex];
     const [lx2, ly2, lz2] = lightPositions[segmentIndex + 1];
 
@@ -115,12 +111,10 @@ export default function Model({ progress }) {
         "animation"
       );
     }
-    // Animate with GSAP (kill old tweens so it’s smooth)
   }, [progress]);
 
   return (
     <>
-      {/* Camera */}
       <PerspectiveCamera
         ref={cameraRef}
         fov={55}
@@ -129,7 +123,6 @@ export default function Model({ progress }) {
         makeDefault
       />
 
-      {/* Directional Light */}
       <directionalLight
         ref={lightRef}
         intensity={10}
@@ -148,7 +141,6 @@ export default function Model({ progress }) {
 
       <ambientLight intensity={0.3} />
 
-      {/* Model + Environment */}
       <Suspense fallback={null}>
         <EnvironmentMap />
         <Scene
@@ -160,7 +152,6 @@ export default function Model({ progress }) {
         />
       </Suspense>
 
-      {/* Orbit Controls */}
     </>
   );
 }

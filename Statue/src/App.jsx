@@ -57,11 +57,9 @@ export default function App() {
   return (
     <div ref={mainRef} className="relative min-h-screen">
       <ReactLenis root />
-      {/* Loader Overlay with AnimatePresence */}
       <AnimatePresence>
         {loading && <Loader loading={loading} onFinish={() => setLoading(false)} />}
       </AnimatePresence>
-      {/* Background Video */}
       <BackgroundVideo />
       <div id="portfolio" className="min-h-[100svh] w-full relative">
         <Navbar />
@@ -80,7 +78,6 @@ export default function App() {
           </span>
         )}
 
-        {/* 3D Scene */}
         <div ref={sceneRef} className="h-[100svh] sm:h-screen fixed top-0 w-full -z-10">
           <Canvas shadows>
             <Suspense fallback={null}>
@@ -89,7 +86,6 @@ export default function App() {
           </Canvas>
         </div>
       </div>
-      {/* Page 2: About + Tech Stack */}
       <div
         id="about"
         className="min-h-[100svh] relative w-full text-white font-[modernist-regular] text-xs sm:text-sm"
@@ -131,7 +127,6 @@ export default function App() {
           </div>
         </Sidenote>
       </div>
-      {/* Page 3: Experience */}
       <div
         id="experience"
         className="min-h-[100svh] relative w-full text-white font-[modernist-regular] text-xs sm:text-sm"
@@ -153,7 +148,6 @@ export default function App() {
           frontend.
         </Sidenote>
       </div>
-      {/* Page 4: Education */}
       <div
         id="education"
         className="min-h-[100svh] relative w-full text-white font-[modernist-regular] text-xs sm:text-sm"
@@ -172,7 +166,6 @@ export default function App() {
           </div>
         </Sidenote>
       </div>
-      {/* Page 5: Projects */}
       <div
         id="projects"
         className="min-h-screen w-full font-[modernist-regular] text-xs sm:text-sm text-white z-[900]"
@@ -215,7 +208,6 @@ export default function App() {
           </div>
         </div>
       </div>
-      {/* Footer */}
       <div
         id="connect"
         className=" w-full relative font-[modernist-regular] text-xs sm:text-sm"
