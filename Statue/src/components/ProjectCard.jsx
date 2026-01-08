@@ -1,6 +1,6 @@
 export default function ProjectCard({ title, href, imageSrc, description }) {
   return (
-    <div className="bg-black/70 p-4 border border-white/10">
+    <div className="bg-black/70 p-4 border border-white/10 z-[999]">
       <div className="flex items-center justify-between pb-3 border-b border-white/20">
         <div>{title}</div>
         <a

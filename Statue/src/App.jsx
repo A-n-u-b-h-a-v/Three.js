@@ -11,6 +11,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { AnimatePresence } from "framer-motion";
 import Loader from "./components/Loader";
 import Sidenote from "./components/Sidenote";
+import ProjectCard from "./components/ProjectCard";
 
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
@@ -66,7 +67,7 @@ export default function App() {
         <Navbar />
         
 
-        <div className="hidden sm:flex uppercase text-[20vw] leading-none overflow-hidden w-screen text-center font-[modernist-bold] absolute inset-0 flex-col items-center justify-center px-4">
+        <div className="hidden sm:flex uppercase text-[20vw] leading-none overflow-hidden w-screen text-center font-[modernist-bold] absolute inset-0 flex-col items-center justify-center px-4 -z-20">
           <h1>anubhav</h1>
           <h1>gusain</h1>
         </div>
@@ -80,7 +81,7 @@ export default function App() {
         )}
 
         {/* 3D Scene */}
-        <div ref={sceneRef} className="h-[100svh] sm:h-screen fixed top-0 w-full">
+        <div ref={sceneRef} className="h-[100svh] sm:h-screen fixed top-0 w-full -z-10">
           <Canvas shadows>
             <Suspense fallback={null}>
               <Model progress={scrollProgress} />
@@ -95,7 +96,7 @@ export default function App() {
       >
         <Sidenote
           title="About Me"
-          className="left-1/2 -translate-x-1/2 top-20 sm:left-10 sm:translate-x-0 sm:top-24"
+          className="left-0 right-0 top-20 sm:left-10 sm:top-24"
         >
           Full Stack Developer who builds end-to-end products across web and
           mobile. I focus on clean architecture, scalable APIs, and fast, modern
@@ -108,7 +109,7 @@ export default function App() {
         </Sidenote>
         <Sidenote
           title="Tech Stack"
-          className="left-1/2 -translate-x-1/2 bottom-10 sm:left-auto sm:right-10 sm:translate-x-0 sm:bottom-24"
+          className="left-0 right-0  bottom-10 sm:left-auto sm:right-10 sm:bottom-24"
         >
           <div className="space-y-3">
             <div>
@@ -137,7 +138,7 @@ export default function App() {
       >
         <Sidenote
           title="Work2Fish (Nov 2025 - Jan 2026)"
-          className="left-1/2 -translate-x-1/2 top-20 sm:left-10 sm:translate-x-0 sm:top-24"
+          className="left-0 right-0  top-20 sm:left-10 sm:top-24"
         >
           Built Android and iOS components for a financial utility
           platform, integrating chatbots and in-app ads while collaborating
@@ -145,7 +146,7 @@ export default function App() {
         </Sidenote>
         <Sidenote
           title="Hudbil Pvt Ltd (Aug 2024 - Dec 2024)"
-          className="left-1/2 -translate-x-1/2 bottom-10 sm:left-auto sm:right-10 sm:translate-x-0 sm:bottom-24"
+          className="left-0 right-0  bottom-10 sm:left-auto sm:right-10 sm:bottom-24"
         >
           Built a client dashboard with MERN and Next.js, integrated a custom
           chatbot, and implemented GSAP animations for a cleaner, maintainable
@@ -159,7 +160,7 @@ export default function App() {
       >
         <Sidenote
           title="Education"
-          className="left-1/2 -translate-x-1/2 top-24 sm:left-auto sm:right-10 sm:translate-x-0 sm:top-1/3"
+          className="left-0 right-0  top-20 sm:left-10 sm:top-24"
         >
           <div className="grid grid-cols-[1fr_auto] gap-x-8 gap-y-2">
             <div>B.Tech, Artificial Intelligence &amp; Machine Learning (MAIT)</div>
@@ -174,164 +175,50 @@ export default function App() {
       {/* Page 5: Projects */}
       <div
         id="projects"
-        className="min-h-screen w-full relative font-[modernist-regular] text-xs sm:text-sm text-white z-50"
+        className="min-h-screen w-full font-[modernist-regular] text-xs sm:text-sm text-white z-[900]"
       >
-        <div className="absolute inset-0 px-5 sm:px-10 py-20 sm:py-24">
+        <div className="px-5 sm:px-10 py-20 sm:py-24">
           <div className="uppercase text-xs font-semibold text-stone-400 mb-6">
             Projects
           </div>
           <div className="grid gap-6 sm:gap-8 md:grid-cols-2 xl:grid-cols-3">
-            <div className="bg-black/70 p-4 border border-white/10">
-              <div className="flex items-center justify-between pb-3 border-b border-white/20">
-                <div>Mooz Project</div>
-                <a
-                  href="https://mooz-project.vercel.app/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-stone-400"
-                >
-                  Visit
-                </a>
-              </div>
-              <div className="pt-3">
-                A responsive web project showcasing a clean UI and modern
-                layout, built for fast loading and smooth interactions.
-              </div>
-              <a
-                href="https://mooz-project.vercel.app/"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-4 block aspect-video w-full overflow-hidden"
-              >
-                <img
-                  src="/projects/mooz.png"
-                  alt="Mooz Project preview"
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
-              </a>
-            </div>
-            <div className="bg-black/70 p-4 border border-white/10">
-              <div className="flex items-center justify-between pb-3 border-b border-white/20">
-                <div>Quillio Notes</div>
-                <a
-                  href="https://quillio-notes.vercel.app/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-stone-400"
-                >
-                  Visit
-                </a>
-              </div>
-              <div className="pt-3">
-                A multi-tenant notes app focused on productivity with secure
-                access and organized note management.
-              </div>
-              <a
-                href="https://quillio-notes.vercel.app/"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-4 block aspect-video w-full overflow-hidden"
-              >
-                <img
-                  src="/projects/quillio.png"
-                  alt="Quillio Notes preview"
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
-              </a>
-            </div>
-            <div className="bg-black/70 p-4 border border-white/10">
-              <div className="flex items-center justify-between pb-3 border-b border-white/20">
-                <div>Mojito</div>
-                <a
-                  href="https://mojito-murex.vercel.app/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-stone-400"
-                >
-                  Visit
-                </a>
-              </div>
-              <div className="pt-3">
-                A bold, animated landing page concept with playful
-                typography and smooth scroll-driven interactions.
-              </div>
-              <a
-                href="https://mojito-murex.vercel.app/"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-4 block aspect-video w-full overflow-hidden"
-              >
-                <img
-                  src="/projects/mojito.png"
-                  alt="Mojito preview"
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
-              </a>
-            </div>
-            <div className="bg-black/70 p-4 border border-white/10">
-              <div className="flex items-center justify-between pb-3 border-b border-white/20">
-                <div>Babycode</div>
-                <a
-                  href="https://babycode-tawny.vercel.app/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-stone-400"
-                >
-                  Visit
-                </a>
-              </div>
-              <div className="pt-3">A clean, modern landing page showcase.</div>
-              <a
-                href="https://babycode-tawny.vercel.app/"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-4 block aspect-video w-full overflow-hidden"
-              >
-                <img
-                  src="/projects/Babycode.png"
-                  alt="Babycode preview"
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
-              </a>
-            </div>
-            <div className="bg-black/70 p-4 border border-white/10">
-              <div className="flex items-center justify-between pb-3 border-b border-white/20">
-                <div>Apple Dummy</div>
-                <a
-                  href="https://apple-dummy.vercel.app/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-stone-400"
-                >
-                  Visit
-                </a>
-              </div>
-              <div className="pt-3">A product-focused landing page mockup.</div>
-              <a
-                href="https://apple-dummy.vercel.app/"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-4 block aspect-video w-full overflow-hidden"
-              >
-                <img
-                  src="/projects/iphone.png"
-                  alt="Apple Dummy preview"
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
-              </a>
-            </div>
+            <ProjectCard
+              title="Mooz Project"
+              href="https://mooz-project.vercel.app/"
+              imageSrc="/projects/mooz.png"
+              description="A responsive web project showcasing a clean UI and modern layout, built for fast loading and smooth interactions."
+            />
+            <ProjectCard
+              title="Quillio Notes"
+              href="https://quillio-notes.vercel.app/"
+              imageSrc="/projects/quillio.png"
+              description="A multi-tenant notes app focused on productivity with secure access and organized note management."
+            />
+            <ProjectCard
+              title="Mojito"
+              href="https://mojito-murex.vercel.app/"
+              imageSrc="/projects/mojito.png"
+              description="A bold, animated landing page concept with playful typography and smooth scroll-driven interactions."
+            />
+            <ProjectCard
+              title="Babycode"
+              href="https://babycode-tawny.vercel.app/"
+              imageSrc="/projects/Babycode.png"
+              description="A clean, modern landing page showcase."
+            />
+            <ProjectCard
+              title="Apple Dummy"
+              href="https://apple-dummy.vercel.app/"
+              imageSrc="/projects/iphone.png"
+              description="A product-focused landing page mockup."
+            />
           </div>
         </div>
       </div>
       {/* Footer */}
       <div
         id="connect"
-        className="min-h-[40vh] sm:min-h-[50vh] w-full relative font-[modernist-regular] text-xs sm:text-sm"
+        className=" w-full relative font-[modernist-regular] text-xs sm:text-sm"
       >
         <div className="absolute inset-x-0 bottom-8 sm:bottom-10 flex flex-col items-center gap-6 px-6 sm:flex-row sm:justify-between sm:px-10 z-50">
           <a

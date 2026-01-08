@@ -58,7 +58,7 @@ function Loader({ onFinish, loading }) {
   }, [loading]);
 
   return (
-    <Motion.div className="fixed inset-0 z-50">
+    <Motion.div className="fixed inset-0 z-[999]">
       <Motion.div
         animate={{ y: startSplit ? "-100%" : 0 }}
         transition={{ duration: 1.4, ease: "easeInOut" }}
