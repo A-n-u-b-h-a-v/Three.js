@@ -50,7 +50,6 @@ spheres.rotation.x=.1
 spheres.position.y=-0.55
 scene.add(spheres)
 
-// HDRI Lighting
 const loader = new RGBELoader();
 loader.load('https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/moonlit_golf_1k.hdr', function(Texture) {
   Texture.mapping=THREE.EquirectangularRefractionMapping
@@ -69,14 +68,12 @@ function updateSlide(direction) {
 
   const heading = document.querySelectorAll(".heading");
 
-  // Update 3D Rotation
   gsap.to(spheres.rotation, {
     y: `+=${direction * Math.PI / 2}`,
     duration: 2,
     ease: "expo.easeInOut"
   });
 
-  // Update Text and ScrollCount
   if (direction === 1) {
     if (scrollCount === 3) {
       scrollCount = 0;
@@ -99,7 +96,7 @@ function updateSlide(direction) {
   } else {
     if (scrollCount === 0) {
       scrollCount = 3;
-      gsap.set(heading, { y: "-400%" }); // Jump to clone
+      gsap.set(heading, { y: "-400%" });  
       gsap.to(heading, {
         y: "+=100%",
         duration: 2,
@@ -132,11 +129,9 @@ document.addEventListener('keydown', (event) => {
 
 
 
-// Ambient Lighting
 const ambientLight = new THREE.AmbientLight(0x333333, 0.5);
 scene.add(ambientLight);
 
-// Directional Lighting
 const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
 directionalLight.position.set(0, 10, 0);
 scene.add(directionalLight);

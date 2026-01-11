@@ -12,12 +12,10 @@ h1{
   font-family: 'Bellina';
 }
 
-/* Fixed height container for carousel masking */
 .planet-mask {
   height: 80px;
 }
 
-/* Individual slide items must match container height */
 .planet-item {
   height: 80px;
   display: flex;
