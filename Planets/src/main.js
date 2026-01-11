@@ -58,37 +58,75 @@ loader.load('https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/moonlit_golf_1
   scene.environment = Texture;
 });
 
-let scrollCount=0
+let scrollCount = 0;
 let lastWheelEvent = 0;
 
-
-document.addEventListener('wheel', (event) => {
+function updateSlide(direction) {
+  // Debounce
   const now = Date.now();
   if (now - lastWheelEvent < 2000) return;
   lastWheelEvent = now;
-  const deltaY = event.deltaY;
 
-  console.log(scrollCount)
-  const heading=document.querySelectorAll(".heading")
+  const heading = document.querySelectorAll(".heading");
 
-  if (deltaY > 0) {
-    scrollCount=(scrollCount + 1) % 4
+  // Update 3D Rotation
+  gsap.to(spheres.rotation, {
+    y: `+=${direction * Math.PI / 2}`,
+    duration: 2,
+    ease: "expo.easeInOut"
+  });
 
-   gsap.to(spheres.rotation,{
-     y:`+=${(Math.PI)/2}`,
-     duration:2,
-     ease:"expo.easeinOut"
-   }) 
-    gsap.to(heading,{
-      y:`-=${100}%`
-     })
-   if(scrollCount==0){
-    gsap.to(heading,{
-      y:0
-     })
-   }
-  } 
+  // Update Text and ScrollCount
+  if (direction === 1) {
+    if (scrollCount === 3) {
+      scrollCount = 0;
+      gsap.to(heading, {
+        y: `-=${100}%`,
+        duration: 2,
+        ease: "expo.easeInOut",
+        onComplete: () => {
+          gsap.set(heading, { y: 0 });
+        }
+      });
+    } else {
+      scrollCount++;
+      gsap.to(heading, {
+        y: `-=${100}%`,
+        duration: 2,
+        ease: "expo.easeInOut"
+      });
+    }
+  } else {
+    if (scrollCount === 0) {
+      scrollCount = 3;
+      gsap.set(heading, { y: "-400%" }); // Jump to clone
+      gsap.to(heading, {
+        y: "+=100%",
+        duration: 2,
+        ease: "expo.easeInOut"
+      });
+    } else {
+      scrollCount--;
+      gsap.to(heading, {
+        y: "+=100%",
+        duration: 2,
+        ease: "expo.easeInOut"
+      });
+    }
+  }
+}
 
+document.addEventListener('wheel', (event) => {
+  const direction = event.deltaY > 0 ? 1 : -1;
+  updateSlide(direction);
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+    updateSlide(1);
+  } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+    updateSlide(-1);
+  }
 });
 
 

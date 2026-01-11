@@ -10,25 +10,26 @@
   </head>
   <body>
     <div class="h-screen w-full bg-black text-white">
-    <nav class="absolute z-[3] w-full  py-7 px-10 flex justify-between font-[Bellina]">
-      <div>Planets</div>
-      <div class="flex gap-9">
-        <a class="text-sm" href="#">Home</a>
-        <a class="text-sm" href="#">About</a>
-        <a class="text-sm" href="#">Contact</a>
+    <nav class="absolute z-[3] w-full py-5 px-5 md:py-7 md:px-10 flex justify-between items-center font-[Bellina]">
+      <div class="text-xl md:text-2xl">Planets</div>
+      <div class="flex gap-4 md:gap-9">
+        <a class="text-xs md:text-sm" href="#">Home</a>
+        <a class="text-xs md:text-sm" href="#">About</a>
+        <a class="text-xs md:text-sm" href="#">Contact</a>
       </div>
     </nav>
-    <div class="absolute z-[2] mt-20 flex flex-col justify-center items-center w-full">
-      <div class="w-96  overflow-hidden text-center" style="height: 104px;">
-        <div class="planetName">
-          <h1 class="heading pb-5 text-8xl tracking-tighter">Earth</h1>
-          <h1 class="heading pb-5 text-8xl tracking-tighter">Cycilla</h1>
-          <h1 class="heading pb-5 text-8xl tracking-tighter">Volcanic</h1>
-          <h1 class="heading pb-5 text-8xl tracking-tighter">Venus</h1>
+    <div class="pointer-events-none absolute z-[2] mt-20 flex flex-col justify-center items-center w-full">
+      <div class="planet-mask w-full max-w-sm overflow-hidden text-center">
+        <div class="planetName planet-mask">
+          <h1 class="heading planet-item text-5xl md:text-8xl tracking-tighter">Earth</h1>
+          <h1 class="heading planet-item text-5xl md:text-8xl tracking-tighter">Cycilla</h1>
+          <h1 class="heading planet-item text-5xl md:text-8xl tracking-tighter">Volcanic</h1>
+          <h1 class="heading planet-item text-5xl md:text-8xl tracking-tighter">Venus</h1>
+          <h1 class="heading planet-item text-5xl md:text-8xl tracking-tighter">Earth</h1>
         </div>
       </div>
-      <p class="text-xs  tracking-tighter">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero</p>
-      <div class="w-96 h-px bg-gradient-to-r from-transparent via-white to-transparent mt-4 "></div>
+      <p class="text-xs md:text-sm px-4 text-center tracking-tighter">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero</p>
+      <div class="w-full max-w-sm h-px bg-gradient-to-r from-transparent via-white to-transparent mt-4 "></div>
     </div>
     <canvas id="canvas"></canvas>
     </div>

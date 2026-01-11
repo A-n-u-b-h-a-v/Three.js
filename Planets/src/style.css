@@ -11,3 +11,25 @@ nav,p{
 h1{
   font-family: 'Bellina';
 }
+
+/* Fixed height container for carousel masking */
+.planet-mask {
+  height: 80px;
+}
+
+/* Individual slide items must match container height */
+.planet-item {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .planet-mask {
+    height: 120px;
+  }
+  .planet-item {
+    height: 120px;
+  }
+}
