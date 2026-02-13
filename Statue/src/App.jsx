@@ -189,7 +189,7 @@ export default function App() {
             />
             <ProjectCard
               title="Mojito"
-              href="https://mojito-murex.vercel.app/"
+              href="https://mojito-drinks.vercel.app/"
               imageSrc="/projects/mojito.png"
               description="A bold, animated landing page concept with playful typography and smooth scroll-driven interactions."
             />
